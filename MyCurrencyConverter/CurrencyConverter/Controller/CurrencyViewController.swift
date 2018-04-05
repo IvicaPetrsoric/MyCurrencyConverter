@@ -34,36 +34,18 @@ class CurrencyViewController: UIViewController {
     
     private func fetchData() {
         service.fetchCurrencyData { (compleated, data) in
-//            self.currencyView.removeIndicatorView()
-//            
-//            if compleated {
-//                guard let data = data else { return }
-//                self.currencyView.currencyData = data 
-//            } else {
-//                self.showAllert(message: AlertMessage.missingWeb.rawValue)
-//            }
+            self.currencyView.removeIndicatorView()
+            
+            if compleated {
+                guard let data = data else { return }
+                self.currencyView.currencyData = data
+            } else {
+                self.showAllert(message: AlertMessage.missingWeb.rawValue)
+            }
         }
     }
 
 }
 
-extension CurrencyViewController: CurrencyViewDelegate {
-    
-    func getCurrencyConversion(forValue: Int, fromCurrency: Currency, toCurrency: Currency) -> (ConverionValues)? {
-        let currentAmount = Double(forValue)
-        let fromUnitValueCurrency = Double(fromCurrency.unitValue)
-        guard let fromBuyinCurrency = Double(fromCurrency.buyingRate) else { return nil }
-        
-        let currentAmountToKN = (currentAmount / fromUnitValueCurrency) * fromBuyinCurrency
-        
-        guard let toBuyingCurrency = Double(toCurrency.buyingRate) else { return nil }
-        guard let toSellingCurrency = Double(toCurrency.sellingRate) else { return nil }
-        
-        let toSellingValue = currentAmountToKN / (toSellingCurrency * 100)
-        let toBuyingValue = currentAmountToKN / (toBuyingCurrency * 100)
-        
-        let conversionValues = ConverionValues(currencySellingFromBank: toSellingValue, currencyBuyingFromBank: toBuyingValue)
-        return conversionValues
-    }
-}
+
 
