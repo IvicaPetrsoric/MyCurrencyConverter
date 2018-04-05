@@ -53,8 +53,16 @@ extension UIView {
         }
     }
     
-    func anchorCenter() {
+    func anchorCenter(centerX: NSLayoutXAxisAnchor?, centerY: NSLayoutYAxisAnchor?) {
+        translatesAutoresizingMaskIntoConstraints = false
         
+        if let centerX = centerX {
+            centerXAnchor.constraint(equalTo: centerX).isActive = true
+        }
+        
+        if let centerY = centerY {
+            centerYAnchor.constraint(equalTo: centerY).isActive = true
+        }
     }
 }
 
@@ -76,9 +84,14 @@ extension UIColor{
     static let tealColor = UIColor(red: 48/255, green: 164/255, blue: 182/255, alpha: 1)
     static let lightRed = UIColor(red: 247/255, green: 66/255, blue: 82/255, alpha: 1)
     static let darkBlue = UIColor(red: 9/255, green: 45/255, blue: 64/255, alpha: 1)
+    
     static let lightBlue = UIColor(red: 218/255, green: 235/255, blue: 243/255, alpha: 1)
     static let midBlue = UIColor(red: 100/255, green: 170/255, blue: 245/255, alpha: 1)
     static let lightGreen = UIColor(red: 130/255, green: 240/255, blue: 100/255, alpha: 1)
-    static let lightOrange = UIColor(red: 230/255, green: 148/255, blue: 30/255, alpha: 1)
+    
+    static let darkOrange = UIColor(red: 255/255, green: 192/255, blue: 69/255, alpha: 1)
+    static let lightOrange = UIColor(red: 240/255, green: 226/255, blue: 146/255, alpha: 1)
+    static let midPurple = UIColor(red: 95/255, green: 1/255, blue: 109/255, alpha: 1)
+
     
 }

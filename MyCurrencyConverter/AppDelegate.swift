@@ -22,15 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barTintColor = .lightOrange
+        UINavigationBar.appearance().barTintColor = .lightRed
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-//        UINavigationBar.appearance().prefersLargeTitles = true
-//        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,
-//                                                                 NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 25)]
         
         let rootViewController = CurrencyViewController()
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
-        
+        window?.rootViewController = CustomNavigationController(rootViewController: rootViewController)
         
         return true
     }
